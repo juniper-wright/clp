@@ -2,23 +2,17 @@
 	<head>
 		<title>Chelsea Lyn Photography</title>
 		<link rel="stylesheet" href="stylesheet.css">
-		<script>
-			function shownav()
-			{
-				document.getElementById('sub-nav').style.visibility = "visible";
-				document.getElementById('main').style.opacity = "0.7";
-			}
-			function hidenav()
-			{
-				document.getElementById('sub-nav').style.visibility = "hidden";
-				document.getElementById('main').style.opacity = "1";
-			}
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="fadeslideshow.js">
+		/***********************************************
+		* Ultimate Fade In Slideshow v2.0- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+		* This notice MUST stay intact for legal use
+		* Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
+		***********************************************/
 		</script>
-		<script src="functions.js"></script>
-
-
+		<script src="functions.js.php?g=<?php if(isset($_GET['g'])) echo $_GET['g']; ?>"></script>
 	</head>
-	<body style="background:#FFFDD0">
+	<body style="background:#FFFDD0;">
 		<div id="watermark"><img src="images/copyright.png" width="1024"></div>
 		<div id="main">
 			<div id="top" style="width:100%;">
@@ -28,7 +22,7 @@
 				 <div class="nav">
 					<a href="index.php"><img src="images/C1.png" width="204"></a>
 				 </div>
-				 <div class="nav" onmouseover="shownav();" onmouseout="hidenav();" style="padding-top:20px; position: relative;">
+				 <div class="nav" onmouseover="hidelogin(); shownav();" onmouseout="hidenav();" style="padding-top:20px; position: relative;">
 					<img src="images/C2.png" width="204">
 					<div id="sub-nav" onmouseover="shownav();" onmouseout="hidenav();">
 						<ul style="list-style:none; list-style-type:none; padding:0px;">
@@ -40,9 +34,15 @@
 						</ul>
 					</div>
 				 </div>
-				 <div class="nav">
+				 <a href="#"><div class="nav" onclick="showlogin();" style="padding-top:20px; position: relative;">
 					<img src="images/C3.png" width="204">
-				 </div>
+					<div id="login">
+						<form action="gallery.php" method="GET" id="clientloginform" style="margin:0px;">
+							<label for="g">Gallery ID</label><input type="text" name="g" id="g" onfocus="showlogin();" onblur="hidelogin();">
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+				 </div></a>
 				 <div class="nav">
 					<img src="images/C4.png" width="204">
 				 </div>

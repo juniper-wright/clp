@@ -15,6 +15,12 @@
 		
 		if(isset($_POST['gallery_id']) && strlen($_POST['gallery_id']) > 0)
 		{
+			$res = mysql_query("SELECT * FROM galleries WHERE gallery_id = '" . $_POST['gallery_id'] . "'");
+			if(mysql_fetch_assoc($res) !== false)
+			{
+				header("Location: create_gallery.php?err=" . urlencode("Sorry, that gallery ID already exists. Please try again."));
+				exit;
+			}
 			$gallery_id = $_POST['gallery_id'];
 		}
 		
@@ -36,15 +42,39 @@
 ?>
 
 <?php include('top.php'); ?>
-	<div style="width:600px; height:400px; background-color:#D2D2D2; border: 1px solid #333333; padding:10px;">
+	<div class="editBox">
 		<form action="create_gallery.php?action=create" method="POST">
-			<label for="gallery_id">Gallery ID:</label><input type="text" name="gallery_id">
-			<br><br>
-			<label for="gallery_name">Gallery Name:</label><input type="text" name="gallery_name">
-			<br><br>
-			<label for="event_date">Event Date:</label><input type="text" name="event_date">
-			<br><br>
-			<input type="submit" value="Submit">
+			<table class="editTable">
+				<tr>
+					<th>
+						<label for="gallery_id">Gallery ID: </label>
+					</th>
+					<td>
+						<input type="text" name="gallery_id" size="30" value="">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="gallery_id">Gallery Name: </label>
+					</th>
+					<td>
+						<input type="text" name="gallery_name" size="30" value="">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="event_date">Event Date: </label>
+					</th>
+					<td>
+						<input type="text" name="event_date" size="30" value="">
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input type="Submit" value="Submit">
+					</th>
+				</tr>
+			</table>
 		</form>
 	</div>
 <?php include('bottom.php'); ?>

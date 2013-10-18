@@ -1,0 +1,42 @@
+@font-face
+{
+	font-family: "JandaAsLongAsYouLoveMe";
+	src: url(JandaAsLongAsYouLoveMe.ttf) format("truetype");
+}
+a
+{
+	text-decoration: none;
+	color: #000000;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+.nav
+{
+	float:left;
+	clear:left;
+	font-family: "JandaAsLongAsYouLoveMe", Verdana, Arial;
+	font-size: 20px;
+	line-height: 40px;
+	color: black;
+	padding: 10px 0px;
+	font-weight: bold;
+}
+#main
+{
+	width:1024px;
+	margin: 0 auto;
+}
+#sub-nav
+{
+	position:absolute;
+	top:0px;
+	left:190px;
+	width:150px;
+	background:#FF78F1;
+	border: 2px solid #DD56CE;
+	visibility: hidden;
+	padding: 10px;
+	text-align: center;
+}

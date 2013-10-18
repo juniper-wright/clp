@@ -24,7 +24,7 @@
 	{
 		$file_array = array();
 		$file_keys = array_keys($file_post);
-		for ($i = 0; $i < count($file_post['name']; $i++)
+		for ($i = 0; $i < count($file_post['name']); $i++)
 		{
 			foreach ($file_keys as $key)
 			{

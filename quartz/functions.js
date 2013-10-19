@@ -18,15 +18,18 @@ function updateFiles()
 	}
 
 	var limit = document.getElementById('limit');
+	var submit = document.getElementById('uploadsubmit');
 	if(input.files.length > 250)
 	{
 		limit.style.color = '#FF0000';
 		input.style.color = '#FF0000';
+		submit.disabled = "disabled";
 	}
 	else
 	{
 		limit.style.color = '#000000';
 		input.style.color = '#000000';
+		submit.disabled = false;
 	}
 }
 

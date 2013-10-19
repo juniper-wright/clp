@@ -1,12 +1,6 @@
 <?php
 	session_start();
 	
-	if((!isset($_SESSION['admin_id']) || $_SESSION['admin_id'] < 1) && basename($_SERVER['SCRIPT_NAME']) != 'login.php')
-	{
-		header('Location: login.php');
-		exit;
-	}
-	
 	define("DB_SERVER", "localhost");
 	define("DB_USERNAME", "clpmysqi1");
 	define("DB_PASSWORD", "CG0rkLOYY1Nr!");

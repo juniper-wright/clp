@@ -38,11 +38,6 @@ a
 	text-align: center;
 	z-index: 10000;
 }
-#login *
-{
-	display:block;
-	margin:5px;
-}
 #sub-nav a:hover
 {
 	text-decoration: underline;
@@ -56,6 +51,7 @@ a
 	top:0px;
 	left:0px;
 	visibility:hidden;
+	z-index:100000;
 }
 @media print
 {
@@ -63,4 +59,13 @@ a
 	{
 		visibility:visible;
 	}
+}
+
+.photoslider
+{
+	width:780px;
+	height:520px;
+	background:#000000;
+	border: 3px solid #333333;
+	float:left;
 }

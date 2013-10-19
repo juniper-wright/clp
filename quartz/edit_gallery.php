@@ -10,8 +10,24 @@
 	{
 		mkdir('../galleries/' . $_GET['g'], 0700, true);
 	}
+	
+	$i = 0;
+	$j = 0;
+	$dir = '../galleries/' . $_GET['g'] . '/';
 	$dir_handle = opendir('../galleries/' . $_GET['g']);
-	if(!$dir_handle)
+	if($dir_handle !== false)
+	{
+		while (($file = readdir($dir_handle)) !== false)
+		{
+			if(!in_array($file, array('.', '..')) && !is_dir($dir.$file)) 
+			{
+				$i++;
+			}
+		}
+		closedir($dir_handle);
+		$dir_handle = opendir('../galleries/' . $_GET['g']);
+	}
+	else
 	{
 		header("Location: index.php?err=" . urlencode("Gallery (" . $_GET['g'] . ") could not be opened."));
 	}
@@ -25,17 +41,21 @@
 	}
 	$row = mysql_fetch_assoc($res);
 	
+
 	if(isset($_GET['action']) && $_GET['action'] == 'upload' && isset($_FILES['filesToUpload']) && count($_FILES['filesToUpload']) > 0)
 	{
 		$files = reArrayFiles($_FILES['filesToUpload']);
+		echo '<pre>'; print_r($files) . '</pre>'; die;
 		foreach($files as $file)
 		{
 			if(getimagesize($file['tmp_name']) !== false)
 			{
-				move_uploaded_file($file['tmp_name'], '../galleries/' . $_GET['g'] . '/' . $file['name']);
+				move_uploaded_file($file['tmp_name'], $dir . $i . '.jpg');
+				$i++;
+				$j++;
 			}
 		}
-		$_GET['suc'] = urlencode('Successfully uploaded!');
+		$_GET['suc'] = urlencode($j .' files successfully uploaded!');
 		$dir_handle = opendir('../galleries/' . $_GET['g']);
 	}
 	else if(isset($_GET['action']) && $_GET['action'] == 'upload')
@@ -63,13 +83,16 @@
 		{
 			foreach($_POST['delete'] as $filename)
 			{
-				unlink('../galleries/' . $_GET['g'] . '/' . $filename);
-				$_GET['suc'] = urlencode('Successfully deleted files.');
+				if(file_exists('../galleries/' . $_GET['g'] . '/' . $filename))
+				{
+					unlink('../galleries/' . $_GET['g'] . '/' . $filename);
+				}
 			}
+			$_GET['suc'] = urlencode('Successfully deleted files.');
 		}
 	}
 
-$title = "Edit Gallery: " . $row['gallery_name'];
+$title = "Edit Gallery: " . $row['gallery_num'];
 
 include('top.php');
 
@@ -116,20 +139,25 @@ include('top.php');
 				</div>
 				<div class="editBox">
 					<form action="edit_gallery.php?action=upload&g=<?php echo $_GET['g']; ?>" method="POST" enctype="multipart/form-data">
-						Upload Photos:<br><br>
+						Upload Photos: <span style="font-size:12px;" id="limit">(limit 250)</span><br><br>
 						<input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" onchange="updateFiles();">
 						<ul id="fileList"></ul>
 						<input type="submit" value="Submit" onclick="this.disabled='true';">
 					</form>
 				</div>
 			</td>
-			<td>
+			<td valign="top">
 				<form action="edit_gallery.php?g=<?php echo $_GET['g']; ?>&action=delete" method="POST">
-					<input type="Submit" value="Delete Selected"><br>
 					<?php
+						if($i > 0)
+						{
+							echo '<script src="../jquery.js"></script>';
+							echo '<label for="selectall">Select All</label><input type="checkbox" name="selectall" onchange="selectAll(this); return false;"><input type="Submit" value="Delete Selected" style="margin-left:30px;">' . "\r\n";
+							echo '<br>';
+						}
 						while($filename = readdir($dir_handle))
 						{
-							if($filename != '.' && $filename != '..')
+							if(!in_array($filename, array('.', '..')) && !is_dir($dir.$filename) && strpos($filename, 't_') === false) 
 							{
 								echo '<div class="imagebox"><input type="checkbox" name="delete[]" value="' . $filename . '" style="margin-left:-13px;"><img src="../galleries/' . $_GET['g'] . '/' . $filename . '"></div>' . "\r\n";
 							}

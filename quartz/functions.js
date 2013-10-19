@@ -16,4 +16,36 @@ function updateFiles()
 		li.innerHTML = input.files[x].name;
 		list.appendChild(li);
 	}
+
+	var limit = document.getElementById('limit');
+	if(input.files.length > 250)
+	{
+		limit.style.color = '#FF0000';
+		input.style.color = '#FF0000';
+	}
+	else
+	{
+		limit.style.color = '#000000';
+		input.style.color = '#000000';
+	}
+}
+
+function selectAll(box)
+{
+	if(box.checked != false)
+	{
+		var check_value = "checked";
+	}
+	else
+	{
+		var check_value = false;
+	}
+	var inputs = document.getElementsByTagName('input');
+	for(var i = 0;i < inputs.length;i++)
+	{
+		if(inputs[i].name = 'delete[]')
+		{
+			inputs[i].checked = check_value;
+		}
+	}
 }

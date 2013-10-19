@@ -1,8 +1,9 @@
-<?php include("top.php"); ?>
+<?php
+	include('includes/includes.php');
+	include("top.php");
+?>
 	<div style="" class="photoslider" id="slideshow">
 		<?php
-			include('includes/includes.php');
-			
 			$_GET['g'] = mysql_real_escape_string($_GET['g']);
 			if(isset($_GET['g']) && strlen($_GET['g']) > 0 && in_array($_GET['g'], array('home','families','glamour','weddings','events','personal')))
 			{

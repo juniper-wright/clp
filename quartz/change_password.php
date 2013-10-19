@@ -1,6 +1,5 @@
-<?php include('includes.php'); ?>
+<?php include('includes.php');
 
-<?php
 	if(isset($_GET['action']) && $_GET['action'] == 'change')
 	{
 		if(!isset($_POST['username']) || strlen($_POST['username']) == 0)

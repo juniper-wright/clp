@@ -1,6 +1,5 @@
-<?php include('includes.php'); ?>
+<?php include('includes.php');
 
-<?php 
 	if(isset($_GET['action']) && $_GET['action'] == 'create' && isset($_POST['gallery_name']) && isset($_POST['event_date']))
 	{
 		do
@@ -30,7 +29,7 @@
 		$res = mysql_query("INSERT INTO galleries VALUES ('" . $gallery_num . "', '" . $gallery_id . "', '" . $gallery_name . "', '" . $event_date . "', NOW())");
 		if($res !== false)
 		{
-			mkdir('../galleries/' . $gallery_num, 0700);
+			mkdir('../galleries/' . $gallery_num, 0777);
 			header("Location: edit_gallery.php?g=" . $gallery_num);
 			exit;
 		}

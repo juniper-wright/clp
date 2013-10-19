@@ -19,7 +19,6 @@
 	{
 		$_SESSION['admin_id'] = $admin['admin_id'];
 		$_SESSION['admin_name'] = $admin['admin_name'];
-		echo 'PHPSESSID: ' . $_COOKIE['PHPSESSID'];
 		setcookie('PHPSESSID', $_COOKIE['PHPSESSID'], time()+3600, '/');
 	}
 	

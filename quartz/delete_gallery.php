@@ -1,19 +1,9 @@
-<?php include('includes.php'); ?>
+<?php include('includes.php');
 
-<?php
 	if(!isset($_GET['g']) || strlen($_GET['g']) == 0)
 	{
 		header("Location: index.php");
 		exit;
-	}
-	if(!file_exists('../galleries/' . $_GET['g']))
-	{
-		mkdir('../galleries/' . $_GET['g'], 0700, true);
-	}
-	$dir_handle = opendir('../galleries/' . $_GET['g']);
-	if(!$dir_handle)
-	{
-		header("Location: index.php?err=" . urlencode("Gallery (" . $_GET['g'] . ") could not be opened."));
 	}
 	
 	$res = mysql_query("DELETE FROM galleries WHERE gallery_num = '" . mysql_real_escape_string($_GET['g']) . "' LIMIT 1");

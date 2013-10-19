@@ -1,6 +1,5 @@
-<?php include('includes.php'); ?>
+<?php include('includes.php');
 
-<?php
 	if(!isset($_GET['g']) || strlen($_GET['g']) == 0)
 	{
 		header("Location: index.php");
@@ -8,7 +7,7 @@
 	}
 	if(!file_exists('../galleries/' . $_GET['g']))
 	{
-		mkdir('../galleries/' . $_GET['g'], 0700, true);
+		mkdir('../galleries/' . $_GET['g'], 0777, true);
 	}
 	
 	$i = 0;
@@ -45,7 +44,6 @@
 	if(isset($_GET['action']) && $_GET['action'] == 'upload' && isset($_FILES['filesToUpload']) && count($_FILES['filesToUpload']) > 0)
 	{
 		$files = reArrayFiles($_FILES['filesToUpload']);
-		echo '<pre>'; print_r($files) . '</pre>'; die;
 		foreach($files as $file)
 		{
 			if(getimagesize($file['tmp_name']) !== false)

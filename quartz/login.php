@@ -1,7 +1,8 @@
 <?php
 	if(!isset($_SERVER['HTTPS']) && $_SERVER['REMOTE_ADDR'] != '127.0.0.1')
 	{
-		header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']);
+//		header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']);
+//		exit;
 	}
 	include('includes.php');
 	$messageStackError = '&nbsp;';

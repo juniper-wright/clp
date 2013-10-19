@@ -15,9 +15,12 @@
 	mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
 	mysql_select_db(DB_DATABASE);
 
-	function create_session($admin_id)
+	function create_session($admin)
 	{
-		$_SESSION['admin_id'] = $admin_id;
+		$_SESSION['admin_id'] = $admin['admin_id'];
+		$_SESSION['admin_name'] = $admin['admin_name'];
+		echo 'PHPSESSID: ' . $_COOKIE['PHPSESSID'];
+		setcookie('PHPSESSID', $_COOKIE['PHPSESSID'], time()+3600, '/');
 	}
 	
 	function reArrayFiles($file_post)

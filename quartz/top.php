@@ -13,6 +13,7 @@
 			<div style="" id="topnav">
 				<a href="index.php">Admin Home</a>
 				|<a href="create_gallery.php">Create Gallery</a>
+				|<a href="change_password.php">Change Username/Password</a>
 			</div>
 			<div class="content" style="padding:15px;">
 			<?php

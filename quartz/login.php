@@ -1,15 +1,19 @@
 <?php
+	if(!isset($_SERVER['HTTPS']) && $_SERVER['REMOTE_ADDR'] != '127.0.0.1')
+	{
+		header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']);
+	}
 	include('includes.php');
 	$messageStackError = '&nbsp;';
 	if(isset($_GET['action']) && $_GET['action'] == 'process' && isset($_POST['username']) && isset($_POST['password']))
 	{
-		$res = mysql_query("SELECT admin_id FROM administrators WHERE admin_name = '" . mysql_real_escape_string($_POST["username"]) . "' AND admin_pass = '" . crypt(mysql_real_escape_string($_POST["password"]), 'clmclpsalt') . "'");
+		$res = mysql_query("SELECT * FROM administrators WHERE admin_name = '" . mysql_real_escape_string($_POST["username"]) . "' AND admin_pass = '" . crypt(mysql_real_escape_string($_POST["password"]), '$2a$77clmclpsalt22clmclpsalt') . "'");
 		
 		$login_results = mysql_fetch_assoc($res);
 		
 		if($login_results !== false)
 		{
-			create_session($login_results['admin_id']);
+			create_session($login_results);
 			header('Location: index.php');
 			exit;
 		}

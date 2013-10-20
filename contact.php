@@ -87,7 +87,7 @@
 		$success = @mail($email_to, $email_subject, $email_message, $headers);
 	}
 ?>
-	<style>.photoslider{background: #D2D2D2;}</style>
+	<style>.photoslider{background: #EEE;}</style>
 	<div style="padding:30px; font-family: Verdana, Arial, Sans-serif; font-size:16px;">
 		Please use this fill out this form and tell me a little about your family or event, and I will get back to you within 48 hours.
 		<br>

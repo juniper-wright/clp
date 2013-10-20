@@ -109,7 +109,19 @@
 			
 			if(!isset($slideshow) || $slideshow == false)
 			{
-				echo '<table style="height:100%; width:100%; background: url(\'images/static.jpg\');"><tr><td width="25%"></td><td align="center" valign="middle" style="color:#FFFFFF; font-family: Verdana, Arial, Sans-Serif; font-size:20px;">Gallery Not Found.<br>Please check your Gallery ID.<br>Please allow 48 hours for photos to be uploaded.</td><td width="25%"></td></tr></table>';
+				?>
+				<table style="height:100%; width:100%; background: url('images/static.jpg');">
+					<tr>
+						<td width="25%"></td>
+						<td align="center" valign="middle" style="color:#FFFFFF; font-family: Verdana, Arial, Sans-Serif; font-size:20px;">
+							Gallery Not Found.<br>Please check your Gallery ID.
+							<br>
+							Please allow 48 hours for photos to be uploaded.
+						</td>
+						<td width="25%"></td>
+					</tr>
+				</table>
+				<?php
 			}
 		
 		?>

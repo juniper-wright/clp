@@ -20,6 +20,7 @@
 	
 	$disclaimer_height = 600;
 	
+	$error_message = "";
 	if(isset($_POST['email']) && isset($_POST['jsc']))
 	{
 		// EDIT THE 2 LINES BELOW AS REQUIRED
@@ -36,38 +37,22 @@
 //			echo "Please go back and fix these errors.<br /><br />";
 		}
 		
-		$first_name = $_POST['first_name']; // required
-		$last_name = $_POST['last_name']; // required
-		$email_from = $_POST['email']; // required
-		$telephone = $_POST['telephone']; // not required
-		$comments = $_POST['comments']; // required
-	     
-		$error_message = "";
+		$name = $_POST['name'];
+		$email_from = $_POST['email'];
+		$telephone = $_POST['telephone'];
+		$best_time = $_POST['best_time'];
+		$comments = $_POST['comments'];
 		
-		$email_exp = "^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$";
+		if(!filter_var($email_from, FILTER_VALIDATE_EMAIL))
+		{
+			$error_message = 'The Email Address you entered does not appear to be valid.';
+		}
+		if(strlen($telephone) == 0 && strlen($email_from) == 0)
+		{
+			$error_message = 'I need some way to contact you!';
+		}
 		
-		if(!eregi($email_exp,$email_from))
-		{
-			$error_message .= 'The Email Address you entered does not appear to be valid.<br />';
-		}
-		$string_exp = "^[a-z .'-]+$";
-		if(!eregi($string_exp,$first_name))
-		{
-			$error_message .= 'The First Name you entered does not appear to be valid.<br />';
-		}
-		if(!eregi($string_exp,$last_name))
-		{
-			$error_message .= 'The Last Name you entered does not appear to be valid.<br />';
-		}
-		if(strlen($comments) < 2)
-		{
-			$error_message .= 'The Comments you entered do not appear to be valid.<br />';
-		}
-		if(strlen($error_message) > 0)
-		{
-			died($error_message);
-		}
-		$email_message = "Form details below.\n\n";
+		$email_message = "The following was generated via the contact form on chelsealynphotography.com. If there are links in it, think twice before clicking them.\n\n";
 	     
 		function clean_string($string)
 		{
@@ -75,10 +60,10 @@
 			return str_replace($bad,"",$string);
 		}
 	     
-		$email_message .= "First Name: ".clean_string($first_name)."\n";
-		$email_message .= "Last Name: ".clean_string($last_name)."\n";
+		$email_message .= "Name: ".clean_string($name)."\n";
 		$email_message .= "Email: ".clean_string($email_from)."\n";
 		$email_message .= "Telephone: ".clean_string($telephone)."\n";
+		$email_message .= "Best Time to Reach: ".clean_string($best_time)."\n";
 		$email_message .= "Comments: ".clean_string($comments)."\n";
 	     
 	     
@@ -88,42 +73,51 @@
 		'X-Mailer: PHP/' . phpversion();
 		
 		$success = @mail($email_to, $email_subject, $email_message, $headers);
+		if(!$success)
+		{
+			$error_message = 'An error occurred. Please try again.';
+		}
 	}
 ?>
 	<style>.photoslider{background: #EEE;}</style>
 	<div style="padding:30px; font-family: Verdana, Arial, Sans-serif; font-size:16px;">
-		Please use this fill out this form and tell me a little about your family or event, and I will get back to you within 48 hours.
+		<?php
+			if(isset($success) && $success === true)
+			{
+				echo 'Thanks for contacting me! I\'ll be sure to get back to you within 48 hours!';
+			}
+			else if(strlen($error_message) > 0)
+			{
+				echo '<span class="error">' . $error_message . '</span>';
+			}
+			else
+			{
+				echo 'Please use this fill out this form and tell me a little about your family or event, and I will get back to you within 48 hours.';
+			}
+		?>
 		<br>
 		<hr style="margin-top:15px;">
 		<form name="contactform" method="post" action="contact.php">
 			<table width="680" style="font-size: 14px; font-family: Verdana, Arial, Sans-serif;">
 				<tr>
 					<td valign="top">
-						<label for="first_name">First Name *</label>
+						<label for="name">Name</label>
 					</td>
 					<td valign="top">
-						<input  type="text" name="first_name" maxlength="50" size="30">
+						<input  type="text" name="name" maxlength="100" size="30" tabindex="1">
 					</td>
-					<td valign="center" align="left" rowspan="4" width="280">
+					<td valign="center" align="left" rowspan="4" width="220">
 						<a href="http://www.facebook.com/chelsealynphotography" target="_blank"><img width="56" height="56" src="images/facebook_icon.png" style="border:none"></a>
 						<a href="//www.etsy.com/shop/ChelseaLynPhoto?ref=offsite_badges&utm_source=sellers&utm_medium=badges&utm_campaign=en_isell_1" target="_blank"><img width="56" height="56" src="images/etsy.png"></a>
 						<a href="http://chelsealynphoto.wordpress.com/" target="_blank"><img width="56" height="56" src="images/wordpress.png" style="border:none;"></a>
 					</td>
 				</tr>
 				<tr>
-					<td valign="top"">
-						<label for="last_name">Last Name *</label>
+					<td valign="top">
+						<label for="email">Email Address</label>
 					</td>
 					<td valign="top">
-						<input  type="text" name="last_name" maxlength="50" size="30">
-					</td>
-				</tr>
-				<tr>
-					<td valign="top">
-						<label for="email">Email Address *</label>
-					</td>
-					<td valign="top">
-						<input  type="text" name="email" maxlength="80" size="30">
+						<input  type="text" name="email" maxlength="80" size="30" tabindex="2">
 					</td>
 				</tr>
 				<tr>
@@ -131,21 +125,29 @@
 						<label for="telephone">Telephone Number</label>
 					</td>
 					<td valign="top">
-						<input  type="text" name="telephone" maxlength="30" size="30">
+						<input  type="text" name="telephone" maxlength="30" size="30" tabindex="3">
+					</td>
+				</tr>
+				<tr>
+					<td valign="top"">
+						<label for="best_time">Best Time to Reach You</label>
+					</td>
+					<td valign="top">
+						<input  type="text" name="best_time" maxlength="100" size="30" tabindex="4">
 					</td>
 				</tr>
 				<tr>
 					<td valign="top">
-						<label for="comments">Comments *</label>
+						<label for="comments">Comments</label>
 					</td>
 					<td valign="top" colspan="2">
-						<textarea  name="comments" maxlength="1000" cols="50" rows="6"></textarea>
+						<textarea  name="comments" maxlength="1000" cols="50" rows="6" tabindex="5"></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td colspan="2" align="left">
-						<input type="submit" value="Submit">
+						<input type="submit" value="Submit" tabindex="6">
 					</td>
 				</tr>
 			</table>

@@ -121,3 +121,8 @@ a[href^="mailto:"]
 	max-height:520px;
 	max-width:780px;
 }
+
+.error
+{
+	color:#FF0000;
+}

@@ -6,7 +6,7 @@
 	position: relative;
 	overflow-x:hidden;
 	height: 120px;
-	width: 600px;
+	width: 100%;
 	margin: auto;
 }
 
@@ -16,6 +16,7 @@
 	top: 0px;
 	display: block;
 	margin: 0px;
+	margin-left:0px;
 	padding: 0px;
 }
 
@@ -40,10 +41,11 @@
 
 .photoslider_main  {
 	height: 520px;
-	padding-bottom: 5px;
 	text-align:center;
 	display:table-cell;
 	vertical-align:middle;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 .photoslider_main img {
@@ -56,6 +58,7 @@
 }
 
 .photoslider_caption {
+	margin-top:5px;
 	font-weight: bold;
 	text-align: center;
 }
@@ -82,11 +85,11 @@
 }
 
 .photoslider_play {
-	background: url('/images/play_pause.gif') no-repeat 0px 0px;
+	background: url('../images/play_pause.gif') no-repeat 0px 0px;
 }
 
 .photoslider_stop {
-	background: url('/images/play_pause.gif') no-repeat -25px 0px;
+	background: url('../images/play_pause.gif') no-repeat -25px 0px;
 }
 
 .slideshow_disabled {

@@ -16,9 +16,11 @@
 	along with CLPPhotoSite.  If not, see <http://www.gnu.org/licenses/>.
 	*/ 
 ?>
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>Chelsea Lyn Photography</title>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+		<title>Chelsea Lyn Photography | <?php echo str_replace('_','',substr(ucwords(basename($_SERVER['SCRIPT_NAME'])),0,strpos(basename($_SERVER['SCRIPT_NAME']),'.'))); ?></title>
 		<link rel="stylesheet" href="includes/stylesheet.css">
 		<script type="text/javascript" src="includes/jquery.js"></script>
 		<script type="text/javascript" src="includes/functions.js"></script>

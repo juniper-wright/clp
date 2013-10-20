@@ -16,9 +16,11 @@
 	along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 	*/ 
 ?>
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>Galleries Administration</title>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+		<title>Chelsea Lyn Photography | <?php echo str_replace('_','',substr(ucwords(basename($_SERVER['SCRIPT_NAME'])),0,strpos(basename($_SERVER['SCRIPT_NAME']),'.'))); ?></title>
 		<link rel="stylesheet" href="stylesheet.css">
 	</head>
 	<body>

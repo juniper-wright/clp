@@ -21,9 +21,12 @@
 	$_GET['g'] = mysql_real_escape_string($_GET['g']);
 	if(isset($_GET['g']) && strlen($_GET['g']) > 0 && in_array($_GET['g'], array('home','families','glamour','weddings','events','personal')))
 	{
-		if(file_exists('galleries/' . $_GET['g']))
+		$res = mysql_query("SELECT gallery_num FROM galleries WHERE gallery_num = '" . $_GET['g'] . "' OR gallery_id = '" . $_GET['g'] . "'");
+		$row = ($res !== false ? mysql_fetch_assoc($res) : false);
+		if($row !== false && file_exists('galleries/' . $row['gallery_num']))
 		{
-			$dir_handle = opendir('galleries/' . $_GET['g']);
+			$gallery_num = $row['gallery_num'];
+			$dir_handle = opendir('galleries/' . $gallery_num);
 			if($dir_handle !== false)
 			{
 				$slideshow = true;
@@ -32,7 +35,7 @@
 				{
 					if($filename != '.' && $filename != '..')
 					{
-						$filename_string .= '["galleries/' . $_GET['g'] . '/' . $filename . '"],';
+						$filename_string .= '["galleries/' . $gallery_num . '/' . $filename . '"],';
 					}
 				}
 				$filename_string = substr($filename_string, 0, -1);
@@ -64,7 +67,7 @@
 	{
 		$res = mysql_query("SELECT gallery_num FROM galleries WHERE gallery_num = '" . $_GET['g'] . "' OR gallery_id = '" . $_GET['g'] . "'");
 		$row = ($res !== false ? mysql_fetch_assoc($res) : false);
-		if($row !== false)
+		if($row !== false && file_exists('galleries/' . $row['gallery_num']))
 		{
 			$gallery_num = $row['gallery_num'];
 			$ids = '';

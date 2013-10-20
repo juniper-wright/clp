@@ -15,7 +15,7 @@
 	along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */ 
 
-function updateFiles()
+function updateFiles(maxFiles)
 {
 	//get the input and UL list
 	var input = document.getElementById('filesToUpload');
@@ -36,7 +36,7 @@ function updateFiles()
 
 	var limit = document.getElementById('limit');
 	var submit = document.getElementById('uploadsubmit');
-	if(input.files.length > 250)
+	if(input.files.length > maxFiles)
 	{
 		limit.style.color = '#FF0000';
 		input.style.color = '#FF0000';

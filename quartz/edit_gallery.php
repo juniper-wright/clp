@@ -155,8 +155,8 @@ include('top.php');
 				</div>
 				<div class="editBox">
 					<form action="edit_gallery.php?action=upload&g=<?php echo $_GET['g']; ?>" method="POST" enctype="multipart/form-data">
-						Upload Photos: <span style="font-size:12px;" id="limit">(limit 250)</span><br><br>
-						<input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" onchange="updateFiles();">
+						Upload Photos: <span style="font-size:12px;" id="limit">(limit <?php echo ini_get('max_file_uploads'); ?>)</span><br><br>
+						<input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" onchange="updateFiles(<?php echo ini_get('max_file_uploads'); ?>);">
 						<ul id="fileList"></ul>
 						<input type="submit" value="Submit" id="uploadsubmit">
 					</form>

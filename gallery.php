@@ -114,4 +114,5 @@
 		
 		?>
 	</div>
+	<div style="clear:both; height:30px; width:1px;"></div>
 <?php include("bottom.php"); ?>

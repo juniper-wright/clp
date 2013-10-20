@@ -61,3 +61,4 @@
 					<a href="about.php"><img src="images/C5.png" width="180"></a>
 				 </div>
 			</div>
+			<div class="photoslider" id="slideshow">

@@ -16,6 +16,8 @@
 	along with CLPPhotoSite.  If not, see <http://www.gnu.org/licenses/>.
 	*/ 
 ?>
+			</div>
+			<div style="clear:both; height:30px; width:1px;"></div>
 		</div>
 	</body>
 </html>

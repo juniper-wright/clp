@@ -21,6 +21,8 @@
 	$_GET['g'] = mysql_real_escape_string($_GET['g']);
 	if(isset($_GET['g']) && strlen($_GET['g']) > 0 && in_array($_GET['g'], array('home','families','glamour','weddings','events','personal')))
 	{
+		$disclaimer_height = 600;
+		
 		$res = mysql_query("SELECT gallery_num FROM galleries WHERE gallery_num = '" . $_GET['g'] . "' OR gallery_id = '" . $_GET['g'] . "'");
 		$row = ($res !== false ? mysql_fetch_assoc($res) : false);
 		if($row !== false && file_exists('galleries/' . $row['gallery_num']))
@@ -111,6 +113,7 @@
 	
 	if(!isset($slideshow) || $slideshow == false)
 	{
+		$disclaimer_height = 600;
 		?>
 		<table style="height:100%; width:100%; background: url('images/static.jpg');">
 			<tr>

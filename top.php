@@ -37,6 +37,8 @@
 		}
 		return $in;
 	}
+	
+	$disclaimer_height = 800;
 ?>
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>

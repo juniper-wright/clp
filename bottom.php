@@ -16,8 +16,9 @@
 	along with CLPPhotoSite.  If not, see <http://www.gnu.org/licenses/>.
 	*/ 
 ?>
-			</div>
-			<div style="clear:both; height:30px; width:1px;"></div>
+				
+			</div>			
 		</div>
+		<div style="padding-left: 85px; margin-top:<?php echo $disclaimer_height; ?>px; width:100%; clear:both; height:30px; font-size:10px; text-align:center;">All Photos &copy; Chelsea Lyn Photography 2010 - <?php echo date('Y'); ?></div>
 	</body>
 </html>

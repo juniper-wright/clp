@@ -15,8 +15,11 @@
 	You should have received a copy of the GNU General Public License
 	along with CLPPhotoSite.  If not, see <http://www.gnu.org/licenses/>.
 	*/ 
+
+	include("top.php");
+	
+	$disclaimer_height = 600;
 ?>
-<?php include("top.php"); ?>
 	<style>.photoslider{background: #EEE;}</style>
 	<div style="padding:18px; font-family: Verdana, Arial, Sans-serif; font-size:16px;">
 		<table width="720" cellpadding="10" >

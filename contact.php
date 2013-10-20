@@ -17,6 +17,9 @@
 	*/ 
 
 	include("top.php");
+	
+	$disclaimer_height = 600;
+	
 	if(isset($_POST['email']) && isset($_POST['jsc']))
 	{
 		// EDIT THE 2 LINES BELOW AS REQUIRED

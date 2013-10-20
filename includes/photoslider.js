@@ -261,7 +261,7 @@ FOTO.Slider = {
 		//let's move our thumb into position
 		if(this.data[key]['currentId'] != null){
 			//move the thumbnail back up
-			SKEL.EFFECTS.Slide.animate($('.photoslider_thumb[imageid='+this.data[key]['currentId']+']'),'top','20px','0px',500,SKEL.Transitions.quadOut);
+			SKEL.EFFECTS.Slide.animate($('.photoslider_thumb[imageid="'+this.data[key]['currentId']+'"]'),'top','20px','0px',500,SKEL.Transitions.quadOut);
 			//NOTE: we don't want to clear this interval incase the user clicks really fast (unless we kept track of every animation)
 		}
 

@@ -76,7 +76,7 @@
 					{
 						if(!in_array($file, array('.', '..')) && !is_dir('../galleries/' . $gallery_num . '/' . $file)) 
 						{
-							$ids .= substr($file, 0, strrpos($file, '.')) . ',';
+							$ids .= "'" . substr($file, 0, strrpos($file, '.')) . "',";
 						}
 					}
 					$ids = substr($ids, 0, -1);

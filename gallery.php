@@ -65,7 +65,7 @@
 	}
 	else if(isset($_GET['g']) && strlen($_GET['g']) > 0)
 	{
-		$res = mysql_query("SELECT gallery_num FROM galleries WHERE gallery_num = '" . $_GET['g'] . "' OR gallery_id = '" . $_GET['g'] . "'");
+		$res = mysql_query("SELECT * FROM galleries WHERE gallery_num = '" . $_GET['g'] . "' OR gallery_id = '" . $_GET['g'] . "'");
 		$row = ($res !== false ? mysql_fetch_assoc($res) : false);
 		if($row !== false && file_exists('galleries/' . $row['gallery_num']))
 		{
@@ -93,6 +93,8 @@
 				$(document).ready(function()
 				{
 					var ids = new Array(<?php echo $ids; ?>);
+					FOTO.Slider.gallery_name = '<?php echo addslashes($row['gallery_name']); ?>';
+					FOTO.Slider.gallery_date = '<?php echo addslashes($row['event_date']); ?>';
 					FOTO.Slider.baseURL = 'galleries/<?php echo $gallery_num; ?>/';
 					FOTO.Slider.importBucketFromIds('slideshow',ids);  
 					FOTO.Slider.reload('slideshow');  

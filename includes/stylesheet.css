@@ -20,6 +20,10 @@
 	font-family: "JandaAsLongAsYouLoveMe";
 	src: url(JandaAsLongAsYouLoveMe.ttf) format("truetype");
 }
+body, body *
+{
+	font-family: Verdana, Arial, Sans-Serif;
+}
 a
 {
 	text-decoration: none;

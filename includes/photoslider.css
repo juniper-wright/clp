@@ -72,7 +72,7 @@
 }
 
 .photoslider_caption {
-	margin-top:25px;
+	margin-top:30px;
 	font-weight: bold;
 	text-align: center;
 }
@@ -84,7 +84,15 @@
 	padding-top: 10px;
 	margin: auto;
 	height: 30px;
-	width: 52px;
+	width: 780px;
+}
+.photoslider_gallery_name
+{
+	float:left;
+}
+.photoslider_gallery_date
+{
+	float:right;
 }
 
 .photoslider_play, .photoslider_stop {
@@ -104,6 +112,12 @@
 
 .photoslider_stop {
 	background: url('../images/play_pause.gif') no-repeat -21px 0px;
+}
+
+.photoslider_playstop
+{
+	float:none;
+	margin-left:365px;
 }
 
 .slideshow_disabled {

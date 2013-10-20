@@ -177,6 +177,14 @@ FOTO.Slider = {
 		//build our play/stop buttons
 		var sliderControl = $(document.createElement('div'));
 		sliderControl.addClass('photoslider_control');
+		
+		var galleryName = $(document.createElement('div'));
+		galleryName.addClass('photoslider_gallery_name');
+		galleryName.html("Gallery: " + this.gallery_name);
+		
+		var galleryDate = $(document.createElement('div'));
+		galleryDate.addClass('photoslider_gallery_date');
+		galleryDate.html("Date: " + this.gallery_date);
 
 		var sliderPlay = $(document.createElement('div'));
 		sliderPlay.addClass('photoslider_play');
@@ -184,11 +192,15 @@ FOTO.Slider = {
 
 		var sliderStop = $(document.createElement('div'));
 		sliderStop.addClass('photoslider_stop');
+		
+		var playstop = $(document.createElement('div'));
+		playstop.addClass('photoslider_playstop');
+		playstop.append(sliderPlay).append(sliderStop);
 
 		var clear = $(document.createElement('div'));
 		clear.addClass('photoslider_clear');
 
-		sliderControl.append(sliderPlay).append(sliderStop).append(clear);
+		sliderControl.append(galleryName).append(playstop).append(galleryDate).append(clear);
 
 		//bind our click events to the buttons
 		$(sliderPlay).click(function(){

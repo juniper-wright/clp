@@ -14,6 +14,25 @@ var FOTO = { };
 var SKEL = { };
 SKEL.EFFECTS = { };
 
+function stripslashes (str)
+{
+	return (str + '').replace(/\\(.?)/g, function (s, n1)
+	{
+		switch (n1)
+		{
+			case '\\':
+				return '\\';
+			case '0':
+				return '\u0000';
+			case '':
+				return '';
+			default:
+				return n1;
+		}
+	});
+}
+
+
 FOTO.Slider = {
 	bucket : { }, //a hash containing our thumbnails & images
 	imageCache : { }, //cache of the images so the preloaded images aren't overwritten in some browsers
@@ -180,11 +199,11 @@ FOTO.Slider = {
 		
 		var galleryName = $(document.createElement('div'));
 		galleryName.addClass('photoslider_gallery_name');
-		galleryName.html("Gallery: " + this.gallery_name);
+		galleryName.html(stripslashes(this.gallery_name));
 		
 		var galleryDate = $(document.createElement('div'));
 		galleryDate.addClass('photoslider_gallery_date');
-		galleryDate.html("Date: " + this.gallery_date);
+		galleryDate.html(stripslashes(this.gallery_date));
 
 		var sliderPlay = $(document.createElement('div'));
 		sliderPlay.addClass('photoslider_play');

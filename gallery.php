@@ -86,7 +86,7 @@
 			{
 				$slideshow = true;
 			?>
-				<span style="height:520px; background-color:#FF0000; width:0px; display:inline-block; vertical-align:center; float:left;"></span>
+				<span style="height:520px; background-color:#FF0000; width:0px; display:inline-block; vertical-align:middle; float:left;"></span>
 				<link rel="stylesheet" type="text/css" media="screen" href="includes/photoslider.css" />
 				<script type="text/javascript" src="includes/photoslider.js"></script>
 				<center>
@@ -95,8 +95,8 @@
 				$(document).ready(function()
 				{
 					var ids = new Array(<?php echo $ids; ?>);
-					FOTO.Slider.gallery_name = '<?php echo $row['gallery_name']; ?>';
-					FOTO.Slider.gallery_date = '<?php echo $row['event_date']; ?>';
+					FOTO.Slider.gallery_name = '<?php echo addslashes($row['gallery_name']); ?>';
+					FOTO.Slider.gallery_date = '<?php echo addslashes($row['event_date']); ?>';
 					FOTO.Slider.baseURL = 'galleries/<?php echo $gallery_num; ?>/';
 					FOTO.Slider.importBucketFromIds('slideshow',ids);  
 					FOTO.Slider.reload('slideshow');  

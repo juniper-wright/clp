@@ -38,19 +38,19 @@
 				}
 				echo '
 				<tr class="dataTableRow">
-					<td class="dataTableContent">
+					<td class="dataTableContent" width="120">
 						' . (strlen($row['gallery_num']) > 0 ? $row['gallery_num'] : '&nbsp;') . '
 					</td>
-					<td class="dataTableContent">
+					<td class="dataTableContent" width="120">
 						' . (strlen($row['gallery_id']) > 0 ? $row['gallery_id'] : '&nbsp;') . '
 					</td>
 					<td class="dataTableContent">
 						' . (strlen($row['gallery_name']) > 0 ? $row['gallery_name'] : '&nbsp;') . '
 					</td>
-					<td class="dataTableContent">
+					<td class="dataTableContent" width="120">
 						' . (strlen($row['event_date']) > 0 ? $row['event_date'] : '&nbsp;') . '
 					</td>
-					<td class="dataTableContent">
+					<td class="dataTableContent" width="130">
 						<a href="../gallery.php?g=' . $row['gallery_num'] . '" target="_blank">View</a> | 
 						<a href="edit_gallery.php?g='. $row['gallery_num'] . '">Edit</a>';
 				if(is_numeric($row['gallery_num']))

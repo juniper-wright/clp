@@ -17,11 +17,12 @@
 	*/ 
 ?>
 <?php include("top.php"); ?>
-	<div style="padding:18px; background-color:#D2D2D2;">
-		<table width="740" cellpadding="10" style="font-family: Verdana, Arial; font-size:16px;">
+	<style>.photoslider{background: #D2D2D2;}</style>
+	<div style="padding:18px; font-family: Verdana, Arial, Sans-serif; font-size:16px;">
+		<table width="720" cellpadding="10" >
 			<tr>
 				<td width="300" valign="top">
-					<img src="images/about.jpg" width=300px height=415px>
+					<img src="images/about.jpg" width="300" height="415" style="box-shadow:0px 0px 0px 2px #333, 0px 0px 0px 6px #FFF, 0px 0px 0px 8px rgba(0,0,0,0.5);">
 				</td>
 				<td width="480" valign="top">
 					<span style="line-height:20px;"><b>I'm Chelsea,</b>

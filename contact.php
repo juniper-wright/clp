@@ -17,8 +17,78 @@
 	*/ 
 
 	include("top.php");
+	if(isset($_POST['email']) && isset($_POST['jsc']))
+	{
+		// EDIT THE 2 LINES BELOW AS REQUIRED
+		$email_to = "chelsea@chelsealynphotography.com";
+		$email_subject = "Contact Form Email";
+     
+     
+		function died($error)
+		{
+			// your error code can go here
+//			echo "We are very sorry, but there were error(s) found with the form you submitted. ";
+//			echo "These errors appear below.<br /><br />";
+//			echo $error."<br /><br />";
+//			echo "Please go back and fix these errors.<br /><br />";
+		}
+		
+		$first_name = $_POST['first_name']; // required
+		$last_name = $_POST['last_name']; // required
+		$email_from = $_POST['email']; // required
+		$telephone = $_POST['telephone']; // not required
+		$comments = $_POST['comments']; // required
+	     
+		$error_message = "";
+		
+		$email_exp = "^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$";
+		
+		if(!eregi($email_exp,$email_from))
+		{
+			$error_message .= 'The Email Address you entered does not appear to be valid.<br />';
+		}
+		$string_exp = "^[a-z .'-]+$";
+		if(!eregi($string_exp,$first_name))
+		{
+			$error_message .= 'The First Name you entered does not appear to be valid.<br />';
+		}
+		if(!eregi($string_exp,$last_name))
+		{
+			$error_message .= 'The Last Name you entered does not appear to be valid.<br />';
+		}
+		if(strlen($comments) < 2)
+		{
+			$error_message .= 'The Comments you entered do not appear to be valid.<br />';
+		}
+		if(strlen($error_message) > 0)
+		{
+			died($error_message);
+		}
+		$email_message = "Form details below.\n\n";
+	     
+		function clean_string($string)
+		{
+			$bad = array("content-type","bcc:","to:","cc:","href");
+			return str_replace($bad,"",$string);
+		}
+	     
+		$email_message .= "First Name: ".clean_string($first_name)."\n";
+		$email_message .= "Last Name: ".clean_string($last_name)."\n";
+		$email_message .= "Email: ".clean_string($email_from)."\n";
+		$email_message .= "Telephone: ".clean_string($telephone)."\n";
+		$email_message .= "Comments: ".clean_string($comments)."\n";
+	     
+	     
+		// create email headers
+		$headers = 'From: '.$email_from."\r\n".
+		'Reply-To: '.$email_from."\r\n" .
+		'X-Mailer: PHP/' . phpversion();
+		
+		$success = @mail($email_to, $email_subject, $email_message, $headers);
+	}
 ?>
-	<div style="padding:35px; padding-bottom: 46px; background-color:#D2D2D2; font-family: Verdana, Arial, Sans-serif; font-size:16px;">
+	<style>.photoslider{background: #D2D2D2;}</style>
+	<div style="padding:30px; font-family: Verdana, Arial, Sans-serif; font-size:16px;">
 		Please use this fill out this form and tell me a little about your family or event, and I will get back to you within 48 hours.
 		<br>
 		<hr style="margin-top:15px;">
@@ -76,6 +146,7 @@
 					</td>
 				</tr>
 			</table>
+			<script>document.write('<input type="hidden" style="display:none;" name="jsc" value="jsc">');</script>
 		</form>
 		<hr>
 		You can also contact me directly via:<br>

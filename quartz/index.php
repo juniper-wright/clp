@@ -47,7 +47,7 @@
 						' . (strlen($row['event_date']) > 0 ? $row['event_date'] : '&nbsp;') . '
 					</td>
 					<td class="dataTableContent">
-						<a href="../gallery.php?g=' . $row['gallery_num'] . '">View</a> | 
+						<a href="../gallery.php?g=' . $row['gallery_num'] . '" target="_blank">View</a> | 
 						<a href="edit_gallery.php?g='. $row['gallery_num'] . '">Edit</a>';
 				if(is_numeric($row['gallery_num']))
 				{

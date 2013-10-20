@@ -175,7 +175,7 @@ include('top.php');
 						{
 							if(!in_array($filename, array('.', '..')) && !is_dir($dir.$filename) && strpos($filename, 't_') === false) 
 							{
-								echo '<div class="imagebox"><input type="checkbox" name="delete[]" value="' . $filename . '" style="margin-left:-13px;"><img src="../galleries/' . $_GET['g'] . '/' . $filename . '"></div>' . "\r\n";
+								echo '<div class="imagebox"><input type="checkbox" name="delete[]" value="' . $filename . '"><span>' . $filename . '</span><img src="../galleries/' . $_GET['g'] . '/' . $filename . '"></div>' . "\r\n";
 							}
 						}
 					?>

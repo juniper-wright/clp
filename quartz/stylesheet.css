@@ -67,7 +67,7 @@ label
 .editBox
 {
 	width:400px;
-	background-color:#D2D2D2;
+	background-color:#EEE;
 	padding:10px;
 	border: 1px solid black;
 	margin:5px;
@@ -94,11 +94,26 @@ label
 	width: 200px;
 	padding: 0px 15px 15px 15px;
 	margin: 10px;
-	background-color: #D2D2D2;
+	background-color: #EEE;
 	border: 1px solid black;
+}
+.imageBox input
+{
+	float:left;
+	margin-top:2px;
+	margin-left:-13px;
+}
+.imageBox span
+{
+	display:block;
+	float:left;
+	margin-top:-2px;
+	font-size:12px;
+	line-height:21px;
 }
 .imageBox img
 {
+	margin-top:-3px;
 	height:200px;
 	width:200px;
 }

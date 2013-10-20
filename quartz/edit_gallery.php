@@ -66,7 +66,7 @@
 		{
 			if(getimagesize($file['tmp_name']) !== false)
 			{
-				move_uploaded_file($file['tmp_name'], $dir . $file['name'] . '.jpg');
+				move_uploaded_file($file['tmp_name'], $dir . $file['name']);
 				$i++;
 				$j++;
 			}

@@ -22,7 +22,7 @@ FOTO.Slider = {
 	thumbURL : '{ID}.jpg',
 	mainURL : '{ID}.jpg',
 
-	duration: 3000, //how long do we look at each image?
+	duration: 4000, //how long do we look at each image?
 
 	data : { }, //contains things like current offset, paused, etc keyed off of the slider id
 
@@ -45,9 +45,15 @@ FOTO.Slider = {
 	},
 
 	//returns the caption for the image
-	getCaptionFromId: function(key,id){
-		if(this.bucket[key] != null && this.bucket[key][id] != null){
+	getCaptionFromId: function(key,id)
+	{
+		if(this.bucket[key] != null && this.bucket[key][id] != null && this.bucket[key][id]['caption'] != null)
+		{
 			return this.bucket[key][id]['caption'];
+		}
+		else
+		{
+			return this.mainURL.replace('{ID}',id);
 		}
 	},
 
@@ -113,7 +119,7 @@ FOTO.Slider = {
 			this.data[key] = new Object();
 		}
 
-		this.data[key]['thumbWidth'] = 72;
+		this.data[key]['thumbWidth'] = 70;
 		this.data[key]['paused'] = true;
 		this.data[key]['currentSlot'] = 0;
 		this.data[key]['currentId'] = null;

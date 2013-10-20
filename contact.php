@@ -20,7 +20,7 @@
 ?>
 	<div style="width:780px; height:520px; background:#D2D2D2; border: 3px solid #333333; float:left;">
 		<div style="margin:50px;">
-			<form name="contactform" method="post" action="send_form_email.php">
+			<form name="contactform" method="post" action="contact.php">
 				<table width="680" style="font-size: 14px; font-family: Verdana, Arial, Sans-serif;">
 					<tr>
 						<td valign="top">

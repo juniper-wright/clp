@@ -107,6 +107,12 @@
 			$_GET['suc'] = urlencode('Successfully deleted files.');
 		}
 	}
+	
+	
+	foreach($row as $key => $value)
+	{
+		$row[$key] = stripslashes($value);
+	}
 
 $title = "Edit Gallery: " . $row['gallery_num'];
 

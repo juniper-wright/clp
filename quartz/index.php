@@ -32,6 +32,10 @@
 			$res = mysql_query('SELECT * FROM galleries ORDER BY create_date ASC');
 			while($row = mysql_fetch_assoc($res))
 			{
+				foreach($row as $key => $value)
+				{
+					$row[$key] = stripslashes($value);
+				}
 				echo '
 				<tr class="dataTableRow">
 					<td class="dataTableContent">

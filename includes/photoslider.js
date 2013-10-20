@@ -180,6 +180,7 @@ FOTO.Slider = {
 
 		var sliderPlay = $(document.createElement('div'));
 		sliderPlay.addClass('photoslider_play');
+		sliderPlay.addClass('slideshow_disabled');
 
 		var sliderStop = $(document.createElement('div'));
 		sliderStop.addClass('photoslider_stop');

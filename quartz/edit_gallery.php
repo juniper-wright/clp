@@ -158,7 +158,7 @@ include('top.php');
 						Upload Photos: <span style="font-size:12px;" id="limit">(limit 250)</span><br><br>
 						<input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" onchange="updateFiles();">
 						<ul id="fileList"></ul>
-						<input type="submit" value="Submit" id="uploadsubmit" onclick="this.disabled='true';">
+						<input type="submit" value="Submit" id="uploadsubmit">
 					</form>
 				</div>
 			</td>

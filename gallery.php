@@ -97,6 +97,8 @@
 							FOTO.Slider.importBucketFromIds('slideshow',ids);  
 							FOTO.Slider.reload('slideshow');  
 							FOTO.Slider.preloadImages('slideshow');
+							FOTO.Slider.enableSlideshow('slideshow');
+							FOTO.Slider.play('slideshow');
 						});  
 						</script>
 						</center>

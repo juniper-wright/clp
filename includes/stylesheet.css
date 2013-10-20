@@ -102,18 +102,12 @@ a[href^="mailto:"]
 		0px 0px 0px 14px #fff,
 		0px 0px 0px 18px rgba(0,0,0,0.2),
 		6px 6px 8px 17px #555;
-   
-	-moz-box-shadow:
-		0px 0px 0px 4px #333,
-		0px 0px 0px 14px #fff,
-		0px 0px 0px 18px rgba(0,0,0,0.2),
-		6px 6px 8px 17px #555;
-   
 	box-shadow:
 		0px 0px 0px 8px #333,
 		0px 0px 0px 18px #fff,
 		0px 0px 0px 22px rgba(0,0,0,0.2),
 		6px 6px 8px 21px #555;
+	border-radius: 1px;
 }
 
 .galleryLayer img

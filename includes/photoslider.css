@@ -4,7 +4,7 @@
 
 .photoslider_nav {
 	position: relative;
-	overflow-x:hidden;
+	overflow:hidden;
 	height: 120px;
 	width: 100%;
 	margin: auto;

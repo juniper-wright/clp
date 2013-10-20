@@ -20,10 +20,6 @@
 	font-family: "JandaAsLongAsYouLoveMe";
 	src: url(JandaAsLongAsYouLoveMe.ttf) format("truetype");
 }
-body, body *
-{
-	font-family: Verdana, Arial, Sans-Serif;
-}
 a
 {
 	text-decoration: none;
@@ -58,11 +54,16 @@ a[href^="mailto:"]
 	left:170px;
 	width:150px;
 	background:#FF78F1;
-	border: 2px solid #DD56CE;
+	opacity:0.9;
+	border-radius:10px;
 	visibility: hidden;
 	padding: 10px;
 	text-align: center;
 	z-index: 10000;
+}
+#login
+{
+	top: -10px;
 }
 #sub-nav a:hover
 {
@@ -113,4 +114,10 @@ a[href^="mailto:"]
 		0px 0px 0px 18px #fff,
 		0px 0px 0px 22px rgba(0,0,0,0.2),
 		6px 6px 8px 21px #555;
+}
+
+.galleryLayer img
+{
+	max-height:520px;
+	max-width:780px;
 }

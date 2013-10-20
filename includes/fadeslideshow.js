@@ -51,7 +51,7 @@ function fadeSlideShow(settingarg){
 			return
 		}
 		setting.$gallerylayers=$('<div class="gallerylayer"></div><div class="gallerylayer"></div>') //two stacked DIVs to display the actual slide 
-			.css({position:'absolute', left:0, top:0, width:'100%', height:'100%', background:'black'})
+			.css({position:'absolute', left:0, top:0, width:'100%', height:'100%'}).css('background-image', 'url("images/black-canvas.jpg")').css('background-size', '780px, 520px')
 			.appendTo(setting.$wrapperdiv)
 		var $loadingimg=$('<img src="'+fadeSlideShow_descpanel.controls[2][0]+'" style="position:absolute;width:'+fadeSlideShow_descpanel.controls[2][1]+';height:'+fadeSlideShow_descpanel.controls[2][2]+'" />')
 			.css({left:setting.dimensions[0]/2-fadeSlideShow_descpanel.controls[2][1]/2, top:setting.dimensions[1]/2-fadeSlideShow_descpanel.controls[2][2]}) //center loading gif

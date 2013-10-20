@@ -14,7 +14,29 @@
 
 	You should have received a copy of the GNU General Public License
 	along with CLPPhotoSite.  If not, see <http://www.gnu.org/licenses/>.
-	*/ 
+	*/
+	
+	if(get_magic_quotes_gpc())
+	{
+		$_GET = stripslashes_deep($_GET);
+		$_POST = stripslashes_deep($_POST);
+	}
+	
+	function stripslashes_deep($in)
+	{
+		if(is_array($in))
+		{
+			foreach($in as $key => $value)
+			{
+				$in[$key] = stripslashes_deep($value);
+			}
+		}
+		else
+		{
+			$in = stripslashes($in);
+		}
+		return $in;
+	}
 ?>
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>

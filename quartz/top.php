@@ -14,7 +14,29 @@
 
 	You should have received a copy of the GNU General Public License
 	along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
-	*/ 
+	*/
+	
+	if(get_magic_quotes_gpc())
+	{
+		$_GET = stripslashes_deep($_GET);
+		$_POST = stripslashes_deep($_POST);
+	}
+	
+	function stripslashes_deep($in)
+	{
+		if(is_array($in))
+		{
+			foreach($in as $key => $value)
+			{
+				$in[$key] = stripslashes_deep($value);
+			}
+		}
+		else
+		{
+			$in = stripslashes($in);
+		}
+		return $in;
+	}
 ?>
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -25,8 +47,8 @@
 	</head>
 	<body>
 		<div id="main">
-			<?php echo (isset($_GET['err']) && strlen($_GET['err']) > 0 ? '<div class="messageStack Error"><img src="images/err.png"> ' . urldecode($_GET['err']) . '</div>' : ''); ?>
-			<?php echo (isset($_GET['suc']) && strlen($_GET['suc']) > 0 ? '<div class="messageStack Success"><img src="images/suc.png"> ' . urldecode($_GET['suc']) . '</div>' : ''); ?>
+			<?php echo (isset($_GET['err']) && strlen($_GET['err']) > 0 ? '<div class="messageStack Error" onclick="this.style.display=\'none\';" style="cursor:pointer;"><img src="images/err.png"> ' . urldecode($_GET['err']) . '</div>' : ''); ?>
+			<?php echo (isset($_GET['suc']) && strlen($_GET['suc']) > 0 ? '<div class="messageStack Success" onclick="this.style.display=\'none\';" style="cursor:pointer;"><img src="images/suc.png"> ' . urldecode($_GET['suc']) . '</div>' : ''); ?>
 			<div id="top" style="width:100%;">
 				<a href="../"><img src="images/logo.png" width="600"></a>
 			</div>

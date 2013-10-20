@@ -31,10 +31,10 @@
 			</div>
 			<div class="nav">
 				 <div class="nav">
-					<a href="index.php"><img src="images/C1.png" width="204"></a>
+					<a href="index.php"><img src="images/C1.png" width="180"></a>
 				 </div>
 				 <div class="nav" onmouseover="shownav();" onmouseout="hidenav();" style="padding-top:20px; position: relative;">
-					<img src="images/C2.png" width="204">
+					<img src="images/C2.png" width="180">
 					<div id="sub-nav" onmouseover="shownav();" onmouseout="hidenav();">
 						<ul style="list-style:none; list-style-type:none; padding:0px;">
 							<li><a href="gallery.php?g=families">Families<a></li>
@@ -46,7 +46,7 @@
 					</div>
 				 </div>
 				 <div class="nav" onmouseover="showlogin();" onmouseout="hidelogin();" style="padding-top:20px; position: relative;">
-					<img src="images/C3.png" width="204">
+					<img src="images/C3.png" width="180">
 					<div id="login" onmouseover="showlogin();" onmouseout="hidelogin();">
 						<form action="gallery.php" method="GET" id="clientloginform" style="margin:0px;">
 							<label for="g">Gallery ID</label><input type="text" name="g" id="g">
@@ -55,9 +55,9 @@
 					</div>
 				 </div>
 				 <div class="nav">
-					<a href="contact.php"><img src="images/C4.png" width="204"></a>
+					<a href="contact.php"><img src="images/C4.png" width="180"></a>
 				 </div>
 				 <div class="nav">
-					<a href="about.php"><img src="images/C5.png" width="204"></a>
+					<a href="about.php"><img src="images/C5.png" width="180"></a>
 				 </div>
 			</div>

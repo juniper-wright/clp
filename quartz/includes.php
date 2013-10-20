@@ -23,7 +23,7 @@
 		header('Location: login.php');
 		exit;
 	}
-	
+
 	define("DB_SERVER", "localhost");
 	define("DB_USERNAME", "clpmysqi1");
 	define("DB_PASSWORD", "CG0rkLOYY1Nr!");

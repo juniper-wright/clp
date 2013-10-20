@@ -46,7 +46,7 @@ a
 {
 	position:absolute;
 	top:0px;
-	left:190px;
+	left:170px;
 	width:150px;
 	background:#FF78F1;
 	border: 2px solid #DD56CE;
@@ -82,7 +82,29 @@ a
 {
 	width:780px;
 	height:520px;
-	background:#000000;
-	border: 3px solid #333333;
+	background: url('../images/black-canvas.jpg');
+	background-size: 780px 520px;
 	float:left;
+	margin-left:15px;
+	margin-top:12px;
+	-webkit-box-shadow:
+		0px 0px 0px 4px #191919,
+		0px 0px 0px 4px #333,
+		0px 0px 0px 14px #fff,
+		0px 0px 0px 18px rgba(0,0,0,0.2),
+		6px 6px 8px 17px #555;
+   
+	-moz-box-shadow:
+		0px 0px 0px 4px #191919,
+		0px 0px 0px 4px #333,
+		0px 0px 0px 14px #fff,
+		0px 0px 0px 18px rgba(0,0,0,0.2),
+		6px 6px 8px 17px #555;
+   
+	box-shadow:
+		0px 0px 0px 4px #191919,
+		0px 0px 0px 8px #333,
+		0px 0px 0px 18px #fff,
+		0px 0px 0px 22px rgba(0,0,0,0.2),
+		6px 6px 8px 21px #555;
 }

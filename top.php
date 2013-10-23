@@ -43,6 +43,14 @@
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
+		<script>
+		    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		    ga('create', 'UA-45106073-1', 'chelsealynphotography.com');
+		    ga('send', 'pageview');
+		</script>
 		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 		<title>Chelsea Lyn Photography | <?php echo str_replace('_','',substr(ucwords(basename($_SERVER['SCRIPT_NAME'])),0,strpos(basename($_SERVER['SCRIPT_NAME']),'.'))); ?></title>
 		<link rel="stylesheet" href="includes/stylesheet.css">

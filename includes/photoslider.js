@@ -38,8 +38,8 @@ FOTO.Slider = {
 	imageCache : { }, //cache of the images so the preloaded images aren't overwritten in some browsers
 	loadingURL : '',
 	baseURL : '',
-	thumbURL : '{ID}.jpg',
-	mainURL : '{ID}.jpg',
+	thumbURL : '{ID}',
+	mainURL : '{ID}',
 
 	duration: 4000, //how long do we look at each image?
 
